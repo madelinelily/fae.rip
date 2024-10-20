@@ -1,0 +1,7 @@
+.window {
+    min-height:'100%';
+    min-width:'100%'; 
+    color:'white'; 
+    font-family:'monospace'; 
+    white-space:'pre';
+  }
