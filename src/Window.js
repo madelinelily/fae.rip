@@ -25,7 +25,7 @@ export const Window = ({width, name, logo, links, body}) => {
             setLogoText(text);
     });
 
-    if(links != ""){
+    if(links !== ""){
         fetch(links)
             .then(r => r.text())
             .then(text => {
@@ -33,7 +33,7 @@ export const Window = ({width, name, logo, links, body}) => {
         });
     }
 
-    if(body != ""){
+    if(body !== ""){
         fetch(body)
             .then(r => r.text())
             .then(text => {

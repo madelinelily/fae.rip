@@ -9,7 +9,6 @@ export const TerminalComponent = () => {
 	React.useEffect(() => {
 		// You can call most method in XTerm.js by using 'xterm.current.[METHOD_NAME]`
 		// For not exposed methods below, we have to use 'xterm.current.terminal.[METHOD_NAME]`
-		const terminal = xterm.current.terminal;
 		fetch(raw)
 		.then(r => r.text())
 		.then(text => {
