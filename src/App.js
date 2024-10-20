@@ -14,15 +14,15 @@ import kitty2 from './kitty2.txt';
 
 function App() {
 	const [time, setTime] = useState(Date.now());
-	const [frame, setFrame] = useState(false);
+	const [frameTime, setFrameTime] = useState(false);
 	
 	useEffect(() => {
 	const interval = setInterval(() => setTime(Date.now()), 1000);
 	console.log("interval");
-	setFrame(!frame);
-	return () => {
-		clearInterval(interval);
-	};
+		setFrameTime(!frameTime);
+		return () => {
+			clearInterval(interval);
+		};
 	}, [time]);
  	return (
 		<div style={{background:'#000000', minHeight:'100vh'}}>
@@ -47,10 +47,10 @@ function App() {
 				</Box>
 			</Box>
 			<Box display="flex" justifyContent={'center'} alignContent={'center'}>
-				<div hidden={!frame} style={{background:'#000000'}}>
+				<div hidden={!frameTime} style={{background:'#000000'}}>
 					<Window width={85} name={'kitty.exe'} logo={kitty1} links={""} body={""}></Window>
 				</div>
-				<div hidden={frame} style={{background:'#000000'}}>
+				<div hidden={frameTime} style={{background:'#000000'}}>
 					<Window width={85} name={'kitty.exe'} logo={kitty2} links={""} body={""}></Window>
 				</div>
 			</Box>
