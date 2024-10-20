@@ -13,17 +13,15 @@ import kitty1 from './kitty1.txt';
 import kitty2 from './kitty2.txt';
 
 function App() {
-	const [time, setTime] = useState(Date.now());
 	const [frameTime, setFrameTime] = useState(false);
 	
 	useEffect(() => {
-	const interval = setInterval(() => setTime(Date.now()), 1000);
-	console.log("interval");
-		setFrameTime(!frameTime);
+	const interval = setInterval(() => setFrameTime(!frameTime), 1000);
 		return () => {
 			clearInterval(interval);
+			setInterval(() => setFrameTime(!frameTime), 1000);
 		};
-	}, [time, frameTime]);
+	}, [frameTime]);
  	return (
 		<div style={{background:'#000000', minHeight:'100vh'}}>
 			<div display="flex" justifyContent={'space-between'} alignContent={'space-between'} style={{background:'#000000'}}>
