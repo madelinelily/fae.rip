@@ -77,7 +77,7 @@ export const Window = ({width, name, logo, links, body}) => {
 
 
     function generateLine(text, width){
-        if(text == "discord - snapcaster.mage"){
+        if(text === "discord - snapcaster.mage"){
             console.log("yes");
             console.log(text, width);
         }
@@ -85,7 +85,7 @@ export const Window = ({width, name, logo, links, body}) => {
         if(count < 0){
             count = 0;
         }
-        if(text.replace(" ","") == ""){
+        if(text.replace(" ","") === ""){
             return(emptyLine);
         }
         var line = "|" + text + space.repeat(count);
@@ -103,7 +103,7 @@ export const Window = ({width, name, logo, links, body}) => {
     }
 
     function generateLinkList(){
-        if(linksText == ""){
+        if(linksText === ""){
             return;
         }
         return(
@@ -115,7 +115,7 @@ export const Window = ({width, name, logo, links, body}) => {
         var list = input.split(",");
         var text = list[0];
         var link = list[1];
-        if(link == "x"){
+        if(link === "x"){
             return(
                 <div style={codeStyle}>
                     {generateLine(" " + text, width-1)}
@@ -136,7 +136,7 @@ export const Window = ({width, name, logo, links, body}) => {
     }
 
     function generateBody(width, input){
-        if(input == ""){
+        if(input === ""){
             return;
         }
         if(input.length < width){
@@ -151,14 +151,14 @@ export const Window = ({width, name, logo, links, body}) => {
         var currentText = text.substring(0, width-4);
         var index = currentText.length-1;
         while(index > 0){
-            if(currentText[index] == " " || currentText[index] == "."){
+            if(currentText[index] === " " || currentText[index] === "."){
                 break;
             }
             index--;
         }
         currentText = currentText.substring(0, index);
         var nextText = text.substring(index, text.length);
-        if(nextText == ""){
+        if(nextText === ""){
             return(
                 <div style={codeStyle}>
                     {generateLine(currentText, width-1)}
