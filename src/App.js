@@ -23,7 +23,7 @@ function App() {
 		return () => {
 			clearInterval(interval);
 		};
-	}, [time]);
+	}, [time, frameTime]);
  	return (
 		<div style={{background:'#000000', minHeight:'100vh'}}>
 			<div display="flex" justifyContent={'space-between'} alignContent={'space-between'} style={{background:'#000000'}}>
