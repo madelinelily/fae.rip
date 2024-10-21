@@ -27,7 +27,7 @@ function App() {
 			<div display="flex" justifyContent={'space-between'} alignContent={'space-between'} style={{background:'#000000'}}>
 				<TerminalComponent style={{minHeight:'100%'}}/>
 			</div>
-			<Box display="flex" justifyContent={'space-between'} alignContent={'space-between'}>
+			<Box display="flex" paddingX="1.25vw" justifyContent={'space-between'} alignContent={'space-between'}>
 				<Box>
 					<div style={{background:'#000000'}}>
 						<Window width={75} name={'socials.txt'} logo={socialsLogo} links={socialLinks} body={""}></Window>
