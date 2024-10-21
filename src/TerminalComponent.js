@@ -1,6 +1,6 @@
 import * as React from "react";
 import { XTerm } from "@pablo-lion/xterm-react";
-import raw from '././logo.ansi';
+import raw from './logo.ansi';
 import { Box } from "@mui/material";
 
 export const TerminalComponent = () => {
@@ -13,7 +13,7 @@ export const TerminalComponent = () => {
 		.then(r => r.text())
 		.then(text => {
 			text = text.replaceAll("\\u001b", "\u001b");
-			text = text.replaceAll("\n", "");
+			text = text.replace(/(\r\n|\n|\r)/gm, "");
 			xterm.current.write('\x1b[?47h')
 			xterm.current.writeln(text);
 		});
