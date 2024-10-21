@@ -18,27 +18,30 @@ export const Window = ({width, name, logo, links, body}) => {
     const emptyLine = "|" + space.repeat(width-2)+"|";
     const endLine = "|" + underscore.repeat(width-2)+"|";
 
-
-    fetch(logo)
-		.then(r => r.text())
-		.then(text => {
-            setLogoText(text);
-    });
-
-    if(links !== ""){
-        fetch(links)
+    try{
+        fetch(logo)
             .then(r => r.text())
             .then(text => {
-                setLinksText(text);
+                setLogoText(text);
         });
-    }
 
-    if(body !== ""){
-        fetch(body)
-            .then(r => r.text())
-            .then(text => {
-                setBodyText(text.replace(/(\r\n|\n|\r)/gm, ""));
-        });
+        if(links !== ""){
+            fetch(links)
+                .then(r => r.text())
+                .then(text => {
+                    setLinksText(text);
+            });
+        }
+    
+        if(body !== ""){
+            fetch(body)
+                .then(r => r.text())
+                .then(text => {
+                    setBodyText(text.replace(/(\r\n|\n|\r)/gm, ""));
+            });
+        }
+    }catch (e) {
+        //i don't think we really care because they should all still be cached/populated anyways???
     }
 
 
